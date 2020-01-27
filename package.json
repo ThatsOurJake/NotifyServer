@@ -1,0 +1,27 @@
+{
+  "name": "notify_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "dev": "nodemon src --exec babel-node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^8.9.1",
+    "koa": "^2.11.0",
+    "koa-basic-auth": "^4.0.0",
+    "koa-body-parser": "^1.1.2",
+    "koa-router": "^8.0.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "nodemon": "^2.0.2"
+  }
+}
