@@ -1,5 +1,8 @@
 import KoaRouter from 'koa-router';
 
+import clientAuth from '../auth/client';
+import basicAuth from '../auth/basic';
+
 import { registerToken, sendMessage, unregisterToken } from '../services/firebase';
 
 const hexRegex = /^#(([0-9a-fA-F]{2}){3}|([0-9a-fA-F]){3})$/;
@@ -8,8 +11,7 @@ const router = new KoaRouter({
   prefix: '/api'
 });
 
-// Client auth from the mobile
-router.post('/register-token', async ctx => {
+router.post('/register-token', clientAuth, async ctx => {
   const { token } = ctx.request.body;
 
   if (!token) {
@@ -21,8 +23,7 @@ router.post('/register-token', async ctx => {
   ctx.status = 200;
 });
 
-// Basic Auth and Client Auth
-router.post('/send', async ctx => {
+router.post('/send', basicAuth, async ctx => {
   const { title, body, colour } = ctx.request.body;
 
   if (!title) {
@@ -67,7 +68,7 @@ router.post('/send', async ctx => {
   };
 });
 
-router.post('/unregister-token', async ctx => {
+router.post('/unregister-token', clientAuth, async ctx => {
   const { token } = ctx.request.body;
 
   if (!token) {
