@@ -33,3 +33,6 @@ Payload:
   "colour": "Hex value of the colour of the notification icon, optional!"
 }
 ```
+
+### Running
+Mount the firebase creds to `/NotifyServer/data`
